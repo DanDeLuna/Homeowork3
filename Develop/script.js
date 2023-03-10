@@ -24,18 +24,38 @@ function generatePassword() {
      alert("Password length needs to  be between 8-128 total characters. Try again");
      var confirmLength = (prompt("How many characters would you like your password to contain?"));
       } }
-// Alert the number of charactes the user will have  
+// Alerts tellls user how long passwordd will be
 alert(`Your password will be ${confirmLength} characters long`);
- // Determine parameters of password 
- var confirmSpeChar = confirm("Click OK to confirm if you would like to include special characters");
- var confirmNumChar = confirm("Click OK to confirm if you would like to include numeric characters");    
- var confirmLowerCase = confirm("Click OK to confirm if you would like to include lowercase characters");
- var confirmUpperCase = confirm("Click OK to confirm if you would like to include uppercase characters");
-   // Loop if answer is outside the parameters 
+ // password questions 
+ var confirmSpeChar = confirm("Click OK to confirm,for special characters");
+ var confirmNumChar = confirm("Click OK to confirm,for  numbers");    
+ var confirmLowerCase = confirm("Click OK to confirm, for lowercase characters");
+ var confirmUpperCase = confirm("Click OK to confirm, for uppercase characters");
+   // loop to help with password requirments 
    while(confirmUpperCase === false && confirmLowerCase === false && confirmSpeChar === false && confirmNumChar === false) {
-     alert("You must choose at least one parameter");
-     var confirmSpeChar = confirm("Click OK to confirm if you would like to include special characters");
-     var confirmNumChar = confirm("Click OK to confirm if you would like to include numeric characters");    
-     var confirmLowerCase = confirm("Click OK to confirm if you would like to include lowercase characters");
-     var confirmUpperCase = confirm("Click OK to confirm if you would like to include uppercase characters");   
+      alert("Choose at least one Requirment for password");
+      var confirmSpeChar = confirm("Click OK to confirm, for special characters");
+      var confirmNumChar = confirm("Click OK to confirm, for numbers");    
+      var confirmLowerCase = confirm("Click OK to confirm, for lowercase characters");
+      var confirmUpperCase = confirm("Click OK to confirm, for uppercase characters");   
  } 
+ // Requirements for passwordd 
+ var passwordChar = []
+      
+    if (confirmSpecialChar) {
+      passwordChar = passwordChar.concat(specialChar)
+    }
+
+    if (confirmNumericChar) {
+      passwordChar = passwordChar.concat(number)
+    }
+      
+    if (confirmLowerCase) {
+      passwordChar = passwordChar.concat(letterLower)
+    }
+
+    if (confirmUpperCase) {
+      passwordChar = passwordChar.concat(letterUpper)
+    }
+
+      console.log(passwordChar)
