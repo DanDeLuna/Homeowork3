@@ -7,7 +7,7 @@ This week's Challenge we modify starter code to create an application that enabl
 
 ## Install
 Not required. Can be view via a deployed page.
-Below is the link 
+Here is the link 
 https://dandeluna.github.io/PasswordGeneratorHomework3/
 
 ## User Story
