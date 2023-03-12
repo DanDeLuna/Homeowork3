@@ -23,7 +23,7 @@ function generatePassword() {
   while(confirmLength <= 7 || confirmLength >= 129) {
      alert("Password length needs to  be between 8-128 total characters. Try again");
      var confirmLength = (prompt("How many characters would you like your password to contain?"));
-      } }
+      } 
 // Alerts tellls user how long passwordd will be
 alert(`Your password will be ${confirmLength} characters long`);
  // password questions 
@@ -32,7 +32,8 @@ alert(`Your password will be ${confirmLength} characters long`);
  var confirmLowerCase = confirm("Click OK to confirm, for lowercase characters");
  var confirmUpperCase = confirm("Click OK to confirm, for uppercase characters");
    // loop to help with password requirments 
-   while(confirmUpperCase === false && confirmLowerCase === false && confirmSpeChar === false && confirmNumChar === false) {
+   while(confirmUpperCase === false && confirmLowerCase === false && confirmSpeChar === false && confirmNumChar === false) 
+   {
       alert("Choose at least one Requirment for password");
       var confirmSpeChar = confirm("Click OK to confirm, for special characters");
       var confirmNumChar = confirm("Click OK to confirm, for numbers");    
@@ -42,11 +43,11 @@ alert(`Your password will be ${confirmLength} characters long`);
  // Requirements for passwordd 
  var passwordChar = []
       
-    if (confirmSpecialChar) {
+    if (confirmSpeChar) {
       passwordChar = passwordChar.concat(specialChar)
     }
 
-    if (confirmNumericChar) {
+    if (confirmNumChar) {
       passwordChar = passwordChar.concat(number)
     }
       
@@ -59,3 +60,20 @@ alert(`Your password will be ${confirmLength} characters long`);
     }
 
       console.log(passwordChar)
+      // string to fill  loop with  random characters from array
+      var randomPassword = ""
+      
+      for (var i = 0; i < confirmLength; i++) {
+        randomPassword = randomPassword + passwordChar[Math.floor(Math.random() * passwordChar.length)];
+        console.log(randomPassword)
+      }
+      return randomPassword;
+    }
+
+// Write passwordd to the #passwordd input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+}
